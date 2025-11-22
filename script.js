@@ -1,5 +1,5 @@
-// Initialize map - مختصات پیش‌فرض برای تهران
-const map = L.map('map').setView([35.6892, 51.3890], 12);
+// Initialize map - مختصات پیش‌فرض برای واوان
+const map = L.map('map').setView([36.5656, 50.6179], 13);
 
 // Add OpenStreetMap tile layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
