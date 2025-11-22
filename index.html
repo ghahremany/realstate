@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاور املاک - نقشه املاک</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    
+    <style>
+        body {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+        }
+        
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        
+        .leaflet-popup-content-wrapper {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .property-card:hover {
+            transform: translateX(-5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar {
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+        
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-lg fixed top-0 w-full z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <h1 class="text-2xl font-bold">🏠 مشاور املاک</h1>
+            <div class="text-sm">
+                <span class="bg-blue-700 px-3 py-1 rounded-full">تعداد املاک: <span id="property-count">0</span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex mt-20">
+        <!-- Sidebar -->
+        <aside class="w-96 bg-white shadow-2xl sidebar overflow-hidden">
+            <div class="p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+                <h2 class="text-xl font-bold">لیست املاک</h2>
+                <p class="text-sm mt-1">روی هر ملک کلیک کنید تا روی نقشه ببینید</p>
+            </div>
+            
+            <div id="property-list" class="p-4 space-y-3">
+                <!-- Properties will be loaded here -->
+                <div class="text-center py-8 text-gray-500">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-3"></div>
+                    <p>در حال بارگذاری املاک...</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Map -->
+        <main class="flex-1">
+            <div id="map"></div>
+        </main>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+    
+</body>
+</html>
